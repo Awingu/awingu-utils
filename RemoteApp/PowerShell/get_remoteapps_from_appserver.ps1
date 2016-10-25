@@ -37,7 +37,7 @@ $tabName = "remoteApps"
 $table = New-Object system.Data.DataTable "$tabName"
 
 #Define Columns
-$col1 = New-Object system.Data.DataColumn command,([string])
+$col1 = New-Object system.Data.DataColumn alias,([string])
 $col2 = New-Object system.Data.DataColumn name,([string])
 $col3 = New-Object system.Data.DataColumn icon,([string])
 
