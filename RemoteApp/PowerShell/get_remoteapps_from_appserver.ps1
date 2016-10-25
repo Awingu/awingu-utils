@@ -31,10 +31,10 @@ if (Test-Path $path){
 }
 New-Item $path -type directory
 #Fetch all info to populate the csv
-$tabName = “remoteApps”
+$tabName = "remoteApps"
 
 #Create Table object
-$table = New-Object system.Data.DataTable “$tabName”
+$table = New-Object system.Data.DataTable "$tabName"
 
 #Define Columns
 $col1 = New-Object system.Data.DataColumn command,([string])
