@@ -37,7 +37,7 @@ $tabName = "remoteApps"
 $table = New-Object system.Data.DataTable "$tabName"
 
 #Define Columns
-$col1 = New-Object system.Data.DataColumn alias,([string])
+$col1 = New-Object system.Data.DataColumn command,([string])
 $col2 = New-Object system.Data.DataColumn name,([string])
 $col3 = New-Object system.Data.DataColumn icon,([string])
 
@@ -55,7 +55,7 @@ if ($osversion -eq '2008')
     ForEach ($remoteapp in $remoteapps) {
         #Create a row
         $row = $table.NewRow()
-        $row.alias = $remoteapp.Name
+        $row.command = $remoteapp.Name
         $row.name = (Get-Item RemoteApp\RemoteAppPrograms\$remoteapp\DisplayName).CurrentValue
         $row.icon = (Get-Item RemoteApp\RemoteAppPrograms\$remoteapp\Iconcontents).CurrentValue
         $table.Rows.Add($row)
@@ -67,7 +67,7 @@ Elseif ($osversion -eq '2012' -OR $osversion -eq '2016')
     ForEach ($remoteapp in $remoteapps) {
         #Create a row
         $row = $table.NewRow()
-        $row.alias = $remoteapp.ALIAS
+        $row.command = $remoteapp.ALIAS
         $row.name = $remoteapp.DisplayName
         $row.icon = $remoteapp.IconContents -join ','
         $table.Rows.Add($row)
